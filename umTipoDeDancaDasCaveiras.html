@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dança das caveiras</title>
+    <style>
+        body {
+            background-color:bisque;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        var dt = new Date();
+        var horas = dt.getHours();
+
+        var hora;
+        var todasAsCaveiras;
+
+        if (horas == 0 || horas == 12) { // Independente de ser diurna ou noturna
+            hora = 'sexta';
+            todasAsCaveiras = 'enchem a cesta';
+        } else if (horas == 1 || horas == 13) {
+            hora = 'sétima';
+            todasAsCaveiras = 'ficam sérias';
+        }  else if (horas == 2 || horas == 14) {
+            hora = 'oitava';
+            todasAsCaveiras = 'derramam lava';
+        }  else if (horas == 3 || horas == 15) {
+            hora = 'nona';
+            todasAsCaveiras = 'viram folionas';
+        }  else if (horas == 4 || horas == 16) {
+            hora = 'décima';
+            todasAsCaveiras = 'ficam péssimas';
+        }  else if (horas == 5 || horas == 17) {
+            hora = 'undécima';
+            todasAsCaveiras = 'viram chiquérrimas';
+        }  else if (horas == 6 || horas == 18) {
+            hora = 'duodécima';
+            todasAsCaveiras = 'vão à Déspina';
+        }  else if (horas == 7 || horas == 19) {
+            hora = 'primeira';
+            todasAsCaveiras = 'fazem a feira';
+        }  else if (horas == 8 || horas == 20) {
+            hora = 'segunda';
+            todasAsCaveiras = 'ficam imundas';
+        }  else if (horas == 9 || horas == 21) {
+            hora = 'terceira';
+            todasAsCaveiras = 'viram marisqueiras';
+        }  else if (horas == 10 || horas == 22) {
+            hora = 'quarta';
+            todasAsCaveiras = 'visitam a Marta';
+        }  else if (horas == 11 || horas == 23) {
+            hora = 'quinta';
+            todasAsCaveiras = 'se sujam de tinta';
+        }
+
+        document.write('Quando o relógio bate à ' + hora + ', todas as caveiras ' + todasAsCaveiras + '.');
+    </script>
+</body>
+</html>
