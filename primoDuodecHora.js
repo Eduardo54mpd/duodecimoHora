@@ -1,3 +1,5 @@
+// Primeira "versão" do código
+
 var dt = new Date();
 var horas = dt.getHours();
 
