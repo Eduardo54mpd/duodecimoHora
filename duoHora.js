@@ -1,3 +1,5 @@
+// Segunda "versão" do código
+
 var hora;
 
 switch (new Date().getHours()) { // Também serve como dicionário para as horas
