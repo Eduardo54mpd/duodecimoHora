@@ -1,8 +1,10 @@
 // Segunda "versão" do código
 
+var dt = new Date();
+var horas = dt.getHours();
 var hora;
 
-switch (new Date().getHours()) { // Também serve como dicionário para as horas
+switch (horas) { // Também serve como dicionário para as horas
     case 0: // Exemplo: se é meia-noite...
         hora = 'sexta noturna'; // É a hora sexta noturna
         break;
@@ -77,32 +79,15 @@ switch (new Date().getHours()) { // Também serve como dicionário para as horas
         break;
 }
 
-var dt = new Date();
 var min = dt.getMinutes();
-var duodecimo; // Um duodécimo equivale a 5 minutos
-if (min < 5) {
-    duodecimo = 0;
-} else if (min > 4 && min < 10) {
-    duodecimo = 1;
-} else if (min > 9 && min < 15) {
-    duodecimo = 2;
-} else if (min > 14 && min < 20) {
-    duodecimo = 3;
-} else if (min > 19 && min < 25) {
-    duodecimo = 4;
-} else if (min > 24 && min < 30) {
-    duodecimo = 5;
-} else if (min > 29 && min < 35) {
-    duodecimo = 6;
-} else if (min > 34 && min < 40) {
-    duodecimo = 7;
-} else if (min > 39 && min < 45) {
-    duodecimo = 8;
-} else if (min > 44 && min < 50) {
-    duodecimo = 9;
-} else if (min > 49 && min < 55) {
-    duodecimo = 10;
-} else if (min > 54) {
-    duodecimo = 11;
+var duodecimo = parseInt(min / 5); // Um duodécimo equivale a 5 minutos
+
+if (duodecimo < 2) {
+    if (duodecimo == 0) {
+        console.log(`É a hora ${hora}.`);
+    } else {
+        console.log(`É 1 duodécimo da hora ${hora}.`);
+    }
+} else {
+    console.log(`São ${duodecimo} duodécimos da hora ${hora}.`);
 }
-console.log("É/São " + duodecimo + " duodécimo(s) da hora " + hora + ".");
