@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de horas</title>
+    <style>
+        body {
+            background: rgb(106, 177, 232);
+            text-align: center;
+        } h1 {
+            font: normal 19pt Arial;
+        } div#formulario {
+            background-color: aliceblue;
+            margin: auto;
+            border-radius: 12px;
+            font: normal 12pt Consolas;
+            width: 612px;
+            text-align: center;
+        } div#resposta {
+            font: normal 12pt Calibri;
+        } input#horas {
+            border-radius: 5px;
+            padding: auto;
+        } input#minutos {
+            border-radius: 5px;
+            padding: auto;
+        } input#verificar {
+            background-color: aqua;
+        }
+    </style>
+</head>
+<body>
+    <h1>Que horas são?</h1>
+    <div>
+        Horas e duodécimos:
+    </div> <br>
+    <div id="formulario">
+        <label for="horas" id="horas">Horas</label>
+        <input type="number" name="horas" id="horas" min="0" max="23"> <br>
+        <label for="minutos" id="minutos">Minutos</label>
+        <input type="number" name="minutos" id="minutos" min="0" max="59"> <br>
+        <input type="button" value="CHECK" id="verificar" onclick="verificar()">
+    </div> <br>
+    <div id="resposta">
+        Resposta aqui
+    </div>
+    <script>
+        function verificar() {
+            var coletaHora = document.getElementById('horas');
+            var coletaMin = document.getElementById('minutos');
+            var inpBotao = document.getElementById('verificar');
+            var resposta = document.getElementById('resposta');
+
+            var horas = coletaHora.value;
+            var min = coletaMin.value;
+
+            var duodecimo = parseInt(min / 5);
+
+            var horasObjeto = {
+                0: 'sexta noturna', 1: 'sétima noturna', 2: 'oitava noturna',
+                3: 'nona noturna', 4: 'décima noturna', 5: 'undécima noturna',
+                6: 'duodécima noturna', 7: 'primeira', 8: 'segunda', 9: 'terceira',
+                10: 'quarta', 11: 'quinta', 12: 'sexta', 13: 'sétima', 14: 'oitava', // Esta variável pode ser usada como "dicionário" pra entender as horas
+                15: 'nona', 16: 'décima', 17: 'undécima', 18: 'duodécima',
+                19: 'primeira noturna', 20: 'segunda noturna', 21: 'terceira noturna',
+                22: 'quarta noturna', 23: 'quinta noturna',
+            };
+
+            hora = horasObjeto[horas];
+
+            if (duodecimo < 2) {
+                if (duodecimo == 0) {
+                    resposta.innerHTML = `<p>É a hora <strong>${hora}</strong>.</p>`;
+                } else {
+                    resposta.innerHTML = `<p>É <strong>1 duodécimo</strong> da hora <strong>${hora}</strong>.</p>`;
+                }
+            } else {
+                resposta.innerHTML = `<p>São <strong>${duodecimo} duodécimos</strong> da hora <strong>${hora}</strong>.</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
