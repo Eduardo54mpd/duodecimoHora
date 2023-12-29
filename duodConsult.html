@@ -70,16 +70,19 @@
 
             hora = horasObjeto[horas];
 
-            if (duodecimo < 2) {
-                if (duodecimo == 0) {
-                    resposta.innerHTML = `<p>É a hora <strong>${hora}</strong>.</p>`;
-                } else {
-                    resposta.innerHTML = `<p>É <strong>1 duodécimo</strong> da hora <strong>${hora}</strong>.</p>`;
-                }
+            if (horas > 23 || min > 59) {
+                alert('Insira um valor válido de acordo com o padrão das horas');
             } else {
-                resposta.innerHTML = `<p>São <strong>${duodecimo} duodécimos</strong> da hora <strong>${hora}</strong>.</p>`;
+                    if (duodecimo < 2) {
+                        if (duodecimo == 0) {
+                            resposta.innerHTML = `<p>É a hora <strong>${hora}</strong>.</p>`;
+                        } else {
+                            resposta.innerHTML = `<p>É <strong>1 duodécimo</strong> da hora <strong>${hora}</strong>.</p>`;
+                        }
+                    } else {
+                        resposta.innerHTML = `<p>São <strong>${duodecimo} duodécimos</strong> da hora <strong>${hora}</strong>.</p>`;
+                    }
             }
-        }
     </script>
 </body>
 </html>
