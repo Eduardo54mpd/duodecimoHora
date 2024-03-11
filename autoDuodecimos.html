@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>São quantos duodécimos de qual hora?</title>
+    <style>
+        body {
+            background-color: aqua;
+            text-align: center;
+            font: normal 30pt Trebuchet Ms;
+        } section {
+            background-color: aliceblue;
+            margin: auto;
+            width: 612px;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <head>
+        <h1>
+            São quantos duodécimos de qual hora?
+        </h1>
+    </head>
+    <section id="exibi">
+        <p id="hora">Hora aqui</p>
+    </section>
+    <script>
+        function autoDuodecimo () {
+            let exibeHora = document.getElementById('hora');
+            let exibeSec = document.getElementById('segundo');
+            let agora = new Date();
+            let horas = agora.getHours();
+            let minutos = agora.getMinutes();
+            let segundo = agora.getSeconds();
+
+            let horasObjeto = {
+                0: 'sexta noturna', 1: 'sétima noturna', 2: 'oitava noturna',
+                3: 'nona noturna', 4: 'décima noturna', 5: 'undécima noturna',
+                6: 'duodécima noturna', 7: 'primeira', 8: 'segunda', 9: 'terceira',
+                10: 'quarta', 11: 'quinta', 12: 'sexta', 13: 'sétima', 14: 'oitava',
+                15: 'nona', 16: 'décima', 17: 'undécima', 18: 'duodécima',
+                19: 'primeira noturna', 20: 'segunda noturna', 21: 'terceira noturna',
+                22: 'quarta noturna', 23: 'quinta noturna',
+            };
+
+            let hora = horasObjeto[horas];
+            let duodecimo = parseInt(minutos / 5);
+
+            if (duodecimo < 2) {
+                if (duodecimo == 0) {
+                    exibeHora.innerText = `É a hora ${hora}`;
+                } else {
+                    exibeHora.innerText = `É 1 duodécimo da hora ${hora}`;
+                }
+            } else {
+                exibeHora.innerText = `São ${duodecimo} duodécimos da hora ${hora}`;
+            }
+        }
+
+        setInterval(autoDuodecimo, 1000);
+        autoDuodecimo();
+    </script>
+</body>
+</html>
