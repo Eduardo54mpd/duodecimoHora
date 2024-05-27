@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>São quantos duodécimos de qual hora?</title>
     <style>
         body {
-            background-color: aqua;
+            background-color: aqua; /* Estilização da página */
             text-align: center;
             font: normal 30pt Trebuchet Ms;
         } section {
@@ -24,18 +24,19 @@
         </h1>
     </head>
     <section id="exibi">
-        <p id="hora">Hora aqui</p>
+        <p id="hora">Hora aqui</p> <!-- Tag onde são exibidas as horas adaptadas -->
+        <p id="segundo"></p> <!-- Tag onde são exibidos os segundos (apenas para testes) -->
     </section>
     <script>
-        function autoDuodecimo () {
-            let exibeHora = document.getElementById('hora');
-            let exibeSec = document.getElementById('segundo');
-            let agora = new Date();
-            let horas = agora.getHours();
+        function autoDuodecimo () { // Função que exibe o relógio de acordo com as horas adaptadas
+            let exibeHora = document.getElementById('hora'); // Toma a tag HTML pelo seu id para exibir as horas adaptadas
+            let exibeSec = document.getElementById('segundo'); // Toma a tag HTML pelo seu id para exibir os duodécimos (apenas para testes)
+            let agora = new Date(); // Toma o objeto Date, que se baseia no horário do sistema da máquina
+            let horas = agora.getHours(); // Coleta as horas, minutos e segundos (linhas 35-37)
             let minutos = agora.getMinutes();
             let segundo = agora.getSeconds();
 
-            let horasObjeto = {
+            let horasObjeto = { // Pode ser usado como um "dicionário" de conversão das horas atuais
                 0: 'sexta noturna', 1: 'sétima noturna', 2: 'oitava noturna',
                 3: 'nona noturna', 4: 'décima noturna', 5: 'undécima noturna',
                 6: 'duodécima noturna', 7: 'primeira', 8: 'segunda', 9: 'terceira',
@@ -45,9 +46,10 @@
                 22: 'quarta noturna', 23: 'quinta noturna',
             };
 
-            let hora = horasObjeto[horas];
-            let duodecimo = parseInt(minutos / 5);
+            let hora = horasObjeto[horas]; // Converte as horas
+            let duodecimo = parseInt(minutos / 5); // Divisão dos duodécimos por 5 minutos
 
+            // Exibe as horas (saída) de acordo com a gramática (linhas 53-63)
             if (duodecimo < 2) {
                 if (duodecimo == 0) {
                     exibeHora.innerText = `É a hora ${hora}`;
@@ -57,10 +59,11 @@
             } else {
                 exibeHora.innerText = `São ${duodecimo} duodécimos da hora ${hora}`;
             }
+            exibeSec.innerText = segundo;
         }
 
-        setInterval(autoDuodecimo, 1000);
-        autoDuodecimo();
+        setInterval(autoDuodecimo, 1000); // Atualiza os valores a cada 1 segundo
+        autoDuodecimo(); // Invoca a função
     </script>
 </body>
 </html>
